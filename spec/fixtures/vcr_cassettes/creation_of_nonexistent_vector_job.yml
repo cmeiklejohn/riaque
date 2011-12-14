@@ -8,7 +8,7 @@
       accept:
       - multipart/mixed, application/json;q=0.7, */*;q=0.5
       x-riak-clientid:
-      - a0UaXQ==
+      - EchyAQ==
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200
@@ -25,7 +25,7 @@
         rel="riak_kv_wm_object",</riak>; rel="riak_kv_wm_object",</ping>; rel="riak_kv_wm_ping",</buckets>;
         rel="riak_kv_wm_props",</stats>; rel="riak_kv_wm_stats"
       date:
-      - Wed, 14 Dec 2011 05:47:26 GMT
+      - Wed, 14 Dec 2011 06:21:16 GMT
       content-type:
       - application/json
       content-length:
@@ -35,13 +35,13 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :put
-    uri: http://127.0.0.1:8098/riak/riaque_job/2b4dd1352b43288ab9aadef35a84910f31f2700a?returnbody=true
+    uri: http://127.0.0.1:8098/riak/riaque_job/536661bdbc974a0fce8b5a2be606b0b427e7f1d8?returnbody=true
     body: ! '{"klass":"Riaque::VectorJob","payload":[1,1]}'
     headers:
       accept:
       - multipart/mixed, application/json;q=0.7, */*;q=0.5
       x-riak-clientid:
-      - a0UaXQ==
+      - EchyAQ==
       content-type:
       - application/json
   response: !ruby/struct:VCR::Response
@@ -50,7 +50,7 @@
       message: OK
     headers:
       x-riak-vclock:
-      - a85hYGBgzGDKBVIcypz/fvodtRDJYEr0z2NlyNsSc4IvCwA=
+      - a85hYGBgzGDKBVIcypz/fvodtZDOYEpkymNliNkTc4IvCwA=
       vary:
       - Accept-Encoding
       server:
@@ -58,7 +58,7 @@
       link:
       - </riak/riaque_job>; rel="up"
       date:
-      - Wed, 14 Dec 2011 05:47:26 GMT
+      - Wed, 14 Dec 2011 06:21:16 GMT
       content-type:
       - application/json
       content-length:
