@@ -6,8 +6,8 @@ module Riaque
   autoload :Queue, "riaque/queue"
 
   class << self
-    def enqueue(klass, *args)
-      Job.create(:class => klass, :payload => args).enqueue
+    def enqueue(klass, *payload)
+      Job.enqueue(klass, *payload)
     end
   end
 end
