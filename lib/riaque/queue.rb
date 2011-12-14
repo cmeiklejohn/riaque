@@ -13,6 +13,27 @@ module Riaque
       @jobs || []
     end
 
+    # Enqueue a job into a particular queue.
+    #
+    # @param [Job]
+    # @return [Boolean]
+    #
+    def enqueue(job)
+      @jobs ||= []
+      @jobs << job.key
+
+      self.save
+    end
+
+    # Returns the status of a job existing in a queue.
+    #
+    # @param [Job]
+    # @return [Boolean]
+    #
+    def include?(job)
+      jobs.include?(job.key)
+    end
+
     # Returns the name of the queue to use for a particular job class.
     # 
     # @param [Class] job class

@@ -23,7 +23,11 @@ module Riaque
         end
       end
 
-      pending 'exists in a queue'
+      it 'exists in a queue' do 
+        VCR.use_cassette('retrieval_of_valid_vector_job') do 
+          Queue.for(VectorJob).include?(Job.instance_for(*attributes)).should be_true
+        end
+      end
     end
   end
 end

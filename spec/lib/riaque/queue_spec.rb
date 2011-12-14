@@ -50,7 +50,24 @@ module Riaque
         end
       end
 
-      pending 'adds a job to the queue'
+      context 'with a job' do 
+        let(:job) { Job.new(:klass => VectorJob, :payload => [1,1]) } 
+        let(:queue) { Queue.for(VectorJob) }
+       
+        before do 
+          VCR.use_cassette('creation_of_nonexistent_vector_job') do
+            job.save
+          end
+        end
+        
+        it 'adds a job to the queue' do 
+          VCR.use_cassette('update_of_vector_queue') do
+            subject.enqueue(job).should be_true
+          end
+
+          subject.jobs.should include(job.key)
+        end
+      end
     end
   end
 end
