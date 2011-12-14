@@ -19,7 +19,7 @@ module Riaque
     # @return [String]
     #
     def self.name_for(klass)
-      klass.instance_variable_get("@queue") || :default
+      (klass.instance_variable_get("@queue") || :default).to_s
     end
 
     # Returns the Queue for a particular job class.
@@ -28,7 +28,13 @@ module Riaque
     # @return [Queue]
     #
     def self.for(klass)
-      self.instance_for(name_for(klass))
+      instance = self.instance_for(name_for(klass))
+
+      begin
+        self.find(instance.default_key)
+      rescue Riak::HTTPFailedRequest 
+        instance
+      end
     end
 
     # Return the instantiated object for a particular queue name.
