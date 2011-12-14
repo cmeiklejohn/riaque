@@ -35,20 +35,101 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :get
+    uri: http://127.0.0.1:8098/riak/riaque_job/87a1eb6b53093adc5c96347cd2b47159bb337ba5
+    body: 
+    headers:
+      accept:
+      - multipart/mixed, application/json;q=0.7, */*;q=0.5
+      x-riak-clientid:
+      - DL5wdw==
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: Object Not Found
+    headers:
+      server:
+      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
+      date:
+      - Wed, 14 Dec 2011 05:42:09 GMT
+      content-type:
+      - text/plain
+      content-length:
+      - '10'
+    body: ! 'not found
+
+'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://127.0.0.1:8098/riak/riaque_job/a3d0bcbaad5028bda66635051fb873112b2983ed
+    body: 
+    headers:
+      accept:
+      - multipart/mixed, application/json;q=0.7, */*;q=0.5
+      x-riak-clientid:
+      - Z4yBlw==
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: Object Not Found
+    headers:
+      server:
+      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
+      date:
+      - Wed, 14 Dec 2011 05:45:20 GMT
+      content-type:
+      - text/plain
+      content-length:
+      - '10'
+    body: ! 'not found
+
+'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://127.0.0.1:8098/riak/riaque_job/04c897fd1ecb39b04e6f0eb33693768e17a07d67
+    body: 
+    headers:
+      accept:
+      - multipart/mixed, application/json;q=0.7, */*;q=0.5
+      x-riak-clientid:
+      - KMOedg==
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: Object Not Found
+    headers:
+      server:
+      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
+      date:
+      - Wed, 14 Dec 2011 05:45:47 GMT
+      content-type:
+      - text/plain
+      content-length:
+      - '10'
+    body: ! 'not found
+
+'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
     uri: http://127.0.0.1:8098/riak/riaque_job/2b4dd1352b43288ab9aadef35a84910f31f2700a
     body: 
     headers:
       accept:
       - multipart/mixed, application/json;q=0.7, */*;q=0.5
       x-riak-clientid:
-      - yd62LA==
+      - a0UaXQ==
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
     headers:
       x-riak-vclock:
-      - a85hYGBgzGDKBVIcypz/fvodtRDJYErkymNl+LQ+5gRfFgA=
+      - a85hYGBgzGDKBVIcypz/fvodtRDJYEr0y2NlyNsSc4IvCwA=
       vary:
       - Accept-Encoding
       server:
@@ -56,11 +137,11 @@
       link:
       - </riak/riaque_job>; rel="up"
       last-modified:
-      - Wed, 14 Dec 2011 03:52:46 GMT
+      - Wed, 14 Dec 2011 04:12:05 GMT
       etag:
-      - ! '"58BGkRLClwecKjwHUL3pPU"'
+      - ! '"5H8aoo9QBodyR47APOg0If"'
       date:
-      - Wed, 14 Dec 2011 05:28:18 GMT
+      - Wed, 14 Dec 2011 05:47:26 GMT
       content-type:
       - application/json
       content-length:

@@ -6,7 +6,19 @@ module Riaque
     property :payload
 
     def self.enqueue(klass, *payload)
-      self.new(:klass => klass, :payload => payload).enqueue
+      instance_for(klass, *payload).enqueue
+    end
+
+    def self.exists?(klass, *payload) 
+      begin 
+        self.find(instance_for(klass, *payload).default_key).present?
+      rescue Riak::HTTPFailedRequest 
+        false
+      end
+    end
+
+    def self.instance_for(klass, *payload) 
+      self.new(:klass => klass, :payload => payload)
     end
 
     def enqueue

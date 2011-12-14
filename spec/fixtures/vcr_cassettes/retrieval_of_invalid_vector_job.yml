@@ -1,0 +1,28 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://127.0.0.1:8098/riak/riaque_job/6d0cbfbb5fcb6289d7a982c7cb5ab6b4a179cf77
+    body: 
+    headers:
+      accept:
+      - multipart/mixed, application/json;q=0.7, */*;q=0.5
+      x-riak-clientid:
+      - a0UaXQ==
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: Object Not Found
+    headers:
+      server:
+      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
+      date:
+      - Wed, 14 Dec 2011 05:47:26 GMT
+      content-type:
+      - text/plain
+      content-length:
+      - '10'
+    body: ! 'not found
+
+'
+    http_version: '1.1'

@@ -35,7 +35,17 @@ module Riaque
 
       pending 'can be enqueued to a particular queue'
       
-      pending 'returns true when existence is checked'
+      it 'returns true when existence is checked' do
+        VCR.use_cassette('retrieval_of_valid_vector_job') do
+          Job.exists?(VectorJob, 1, 1).should be_true
+        end
+      end
+
+      it 'returns true when existence is checked' do
+        VCR.use_cassette('retrieval_of_invalid_vector_job') do
+          Job.exists?(VectorJob, 1, 2).should_not be_true
+        end
+      end
     end
   end
 end

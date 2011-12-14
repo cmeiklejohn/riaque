@@ -8,7 +8,7 @@
       accept:
       - multipart/mixed, application/json;q=0.7, */*;q=0.5
       x-riak-clientid:
-      - yd62LA==
+      - a0UaXQ==
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200
@@ -25,7 +25,7 @@
         rel="riak_kv_wm_object",</riak>; rel="riak_kv_wm_object",</ping>; rel="riak_kv_wm_ping",</buckets>;
         rel="riak_kv_wm_props",</stats>; rel="riak_kv_wm_stats"
       date:
-      - Wed, 14 Dec 2011 05:28:18 GMT
+      - Wed, 14 Dec 2011 05:47:26 GMT
       content-type:
       - application/json
       content-length:
@@ -41,7 +41,7 @@
       accept:
       - multipart/mixed, application/json;q=0.7, */*;q=0.5
       x-riak-clientid:
-      - yd62LA==
+      - a0UaXQ==
       content-type:
       - application/json
   response: !ruby/struct:VCR::Response
@@ -50,7 +50,7 @@
       message: OK
     headers:
       x-riak-vclock:
-      - a85hYGBgzGDKBVIcypz/fvodtRDJYErkzmNl+LQ+5gRfFgA=
+      - a85hYGBgzGDKBVIcypz/fvodtRDJYEr0z2NlyNsSc4IvCwA=
       vary:
       - Accept-Encoding
       server:
@@ -58,7 +58,7 @@
       link:
       - </riak/riaque_job>; rel="up"
       date:
-      - Wed, 14 Dec 2011 05:28:18 GMT
+      - Wed, 14 Dec 2011 05:47:26 GMT
       content-type:
       - application/json
       content-length:
