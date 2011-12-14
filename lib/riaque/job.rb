@@ -8,5 +8,9 @@ module Riaque
     def enqueue
       self.enqueue_to(Queue.for(klass))
     end
+
+    def default_key 
+      Digest::SHA1.hexdigest("#{klass}-#{payload}")
+    end
   end
 end

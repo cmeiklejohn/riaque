@@ -15,9 +15,9 @@ module Riaque
     end
 
     context 'when saved' do 
-      subject do
+      before do 
         VCR.use_cassette('creation_of_nonexistent_vector_job') do
-          job.save
+          subject.save
         end
       end
 
@@ -26,6 +26,16 @@ module Riaque
           Job.find(job.key).should be_an_instance_of(Job)
         end
       end
+
+      pending 'returns true when existence is checked'
+
+      it 'has a key derived from the default' do 
+        job.default_key.should == job.key
+      end
+
+      pending 'can be enqueued'
+
+      pending 'can be enqueued to a particular queue'
     end
   end
 end
