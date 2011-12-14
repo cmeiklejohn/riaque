@@ -31,7 +31,15 @@ module Riaque
         job.default_key.should == job.key
       end
 
-      pending 'can be enqueued'
+      context 'with a queue' do 
+        let(:queue) { Queue.new }
+
+        it 'can be enqueued' do 
+          Queue.stub(:for).and_return(queue)
+          queue.should_receive(:enqueue).with(job).and_return(true)
+          job.enqueue.should be_true
+        end
+      end
 
       pending 'can be enqueued to a particular queue'
       
