@@ -5,6 +5,10 @@ module Riaque
     property :klass
     property :payload
 
+    def self.enqueue(klass, *payload)
+      self.new(:klass => klass, :payload => payload).enqueue
+    end
+
     def enqueue
       self.enqueue_to(Queue.for(klass))
     end
