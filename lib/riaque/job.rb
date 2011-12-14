@@ -22,7 +22,7 @@ module Riaque
     # @param [Array] attributes.
     # @return [Boolean]
     #
-    def self.exists?(klass, *payload) 
+    def self.exist?(klass, *payload) 
       begin 
         self.find(instance_for(klass, *payload).default_key).present?
       rescue Riak::HTTPFailedRequest 
