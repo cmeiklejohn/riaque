@@ -9,16 +9,19 @@ Dir[File.join(PROJECT_ROOT,"spec/support/**/*.rb")].each {|f| require f}
 
 require 'riaque'
 
-#require 'vcr'
+require 'vcr'
 
-#VCR.config do |c|
-  #c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
-  #c.stub_with :webmock
-  #c.default_cassette_options = { :record => :new_episodes }
-#end
+VCR.config do |c|
+  c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  c.stub_with :webmock
+  c.default_cassette_options = { :record => :all }
+end
 
 module Riaque
   class VectorJob
+    @queue = :vectors
+  end
 
+  class StringJob
   end
 end
