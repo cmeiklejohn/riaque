@@ -1,6 +1,41 @@
 ---
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://127.0.0.1:8098/riak/riaque_queue/7a2bc1b2e2c16ecfceec57cb2e245baca085b663
+    body: 
+    headers:
+      accept:
+      - multipart/mixed, application/json;q=0.7, */*;q=0.5
+      x-riak-clientid:
+      - S0pHyQ==
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      x-riak-vclock:
+      - a85hYGBgzGDKBVIcypz/fvodtZDMYErcn8fKsPdQzAm+LAA=
+      vary:
+      - Accept-Encoding
+      server:
+      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
+      link:
+      - </riak/riaque_queue>; rel="up"
+      last-modified:
+      - Wed, 14 Dec 2011 05:13:46 GMT
+      etag:
+      - ! '"1lvUapmqwDkOW5cA2xPFSh"'
+      date:
+      - Wed, 14 Dec 2011 06:48:29 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '30'
+    body: ! '{"name":"vectors","jobs":null}'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
     method: :put
     uri: http://127.0.0.1:8098/riak/riaque_queue/7a2bc1b2e2c16ecfceec57cb2e245baca085b663?returnbody=true
     body: ! '{"name":"vectors","jobs":null}'
@@ -8,16 +43,20 @@
       accept:
       - multipart/mixed, application/json;q=0.7, */*;q=0.5
       x-riak-clientid:
-      - TuEfOg==
+      - S0pHyQ==
       content-type:
       - application/json
+      x-riak-vclock:
+      - a85hYGBgzGDKBVIcypz/fvodtZDMYErcn8fKsPdQzAm+LAA=
+      link:
+      - ''
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
     headers:
       x-riak-vclock:
-      - a85hYGBgzGDKBVIcypz/fvodtZDMYEpkzGNl2L8n5gRfFgA=
+      - a85hYGBgzGDKBVIcypz/fvodtZDMYEo8kMfKsPdQzAm+LAA=
       vary:
       - Accept-Encoding
       server:
@@ -25,7 +64,7 @@
       link:
       - </riak/riaque_queue>; rel="up"
       date:
-      - Wed, 14 Dec 2011 06:22:55 GMT
+      - Wed, 14 Dec 2011 06:48:29 GMT
       content-type:
       - application/json
       content-length:

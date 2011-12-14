@@ -2,20 +2,55 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :get
-    uri: http://127.0.0.1:8098/riak/riaque_job/536661bdbc974a0fce8b5a2be606b0b427e7f1d8
+    uri: http://127.0.0.1:8098/riak/riaque_queue/7a2bc1b2e2c16ecfceec57cb2e245baca085b663
     body: 
     headers:
       accept:
       - multipart/mixed, application/json;q=0.7, */*;q=0.5
       x-riak-clientid:
-      - EchyAQ==
+      - S0pHyQ==
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
     headers:
       x-riak-vclock:
-      - a85hYGBgzGDKBVIcypz/fvodtZDOYEpkymNliNkTc4IvCwA=
+      - a85hYGBgzGDKBVIcypz/fvodtZDMYErcncfKsPdQzAm+LAA=
+      vary:
+      - Accept-Encoding
+      server:
+      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
+      link:
+      - </riak/riaque_queue>; rel="up"
+      last-modified:
+      - Wed, 14 Dec 2011 05:13:45 GMT
+      etag:
+      - ! '"5KL5hvbmCaaqBIrBhOlfKZ"'
+      date:
+      - Wed, 14 Dec 2011 06:48:29 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '328'
+    body: ! '{"name":"vectors","jobs":["536661bdbc974a0fce8b5a2be606b0b427e7f1d8","536661bdbc974a0fce8b5a2be606b0b427e7f1d8","536661bdbc974a0fce8b5a2be606b0b427e7f1d8","536661bdbc974a0fce8b5a2be606b0b427e7f1d8","536661bdbc974a0fce8b5a2be606b0b427e7f1d8","536661bdbc974a0fce8b5a2be606b0b427e7f1d8","536661bdbc974a0fce8b5a2be606b0b427e7f1d8"]}'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://127.0.0.1:8098/riak/riaque_job/536661bdbc974a0fce8b5a2be606b0b427e7f1d8
+    body: 
+    headers:
+      accept:
+      - multipart/mixed, application/json;q=0.7, */*;q=0.5
+      x-riak-clientid:
+      - S0pHyQ==
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      x-riak-vclock:
+      - a85hYGBgzGDKBVIcypz/fvodtZDOYEr0yWNl2Hso5gRfFgA=
       vary:
       - Accept-Encoding
       server:
@@ -23,11 +58,11 @@
       link:
       - </riak/riaque_job>; rel="up"
       last-modified:
-      - Wed, 14 Dec 2011 04:46:15 GMT
+      - Wed, 14 Dec 2011 05:13:45 GMT
       etag:
-      - ! '"2Q3Rd9i0kJHmYoNDzHvVRD"'
+      - ! '"27c3OnOerkD994lXgvikWr"'
       date:
-      - Wed, 14 Dec 2011 06:21:16 GMT
+      - Wed, 14 Dec 2011 06:48:29 GMT
       content-type:
       - application/json
       content-length:
