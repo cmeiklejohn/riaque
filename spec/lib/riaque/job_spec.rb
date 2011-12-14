@@ -28,7 +28,7 @@ module Riaque
       end
 
       it 'has a key derived from the default' do 
-        job.default_key.should == job.key
+        subject.default_key.should == subject.key
       end
 
       context 'with a queue' do 
