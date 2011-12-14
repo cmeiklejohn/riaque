@@ -63,7 +63,7 @@ module Riaque
     # @return [String] key derived from object attributes.
     #
     def default_key 
-      Digest::SHA1.hexdigest("#{klass}-#{payload}")
+      Digest::SHA1.hexdigest("riaque:#{klass}-#{payload}")
     end
   end
 end
