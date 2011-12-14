@@ -15,12 +15,33 @@ module Riaque
     end
 
     it 'returns the queue for a particular job type' do 
-      subject.for(VectorJob).should be_an_instance_of(Queue)
+      subject.for(VectorJob).tap do |queue|
+        queue.should be_an_instance_of(Queue)
+        queue.name.should == :vectors
+      end
     end
 
-    pending 'has a name'
+    context 'for a particular queue' do 
+      let(:queue) { Queue.new(:name => :vectors) }
 
-    pending 'has a list of jobs'
+      before do 
+        VCR.use_cassette('creation_of_nonexistent_vector_queue') do
+          subject.save
+        end
+      end
+
+      it 'has a name' do 
+        subject.name.should == :vectors
+      end
+
+      pending 'has a list of jobs' do
+        subject.jobs.should == []
+      end
+
+      pending 'has a key derived on the default key' do 
+        subject.default_key.should == subject.key
+      end
+    end
 
     context 'with an existing queue object in riak' do 
 

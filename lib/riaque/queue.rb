@@ -3,6 +3,15 @@ module Riaque
     include Riik::Document
 
     property :name
+    property :jobs
+
+    # Return list of jobs.
+    #
+    # @return [Array]
+    #
+    def jobs
+      @jobs || []
+    end
 
     # Returns the name of the queue to use for a particular job class.
     # 
@@ -29,6 +38,15 @@ module Riaque
     #
     def self.instance_for(name)
       self.new(:name => name)
+    end
+
+    # Generates a unique key to be used when creating the associated
+    # Riak object.
+    #
+    # @return [String] key derived from object attributes.
+    #
+    def default_key 
+      Digest::SHA1.hexdigest("riaque:#{name}")
     end
   end
 end
