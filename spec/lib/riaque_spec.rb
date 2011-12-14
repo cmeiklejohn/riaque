@@ -5,16 +5,22 @@ module Riaque
     let(:attributes) { [VectorJob, 1, 1] }
 
     it 'enqueues a job' do
-      Riaque.enqueue(*attributes).should be_true
+      VCR.use_cassette('creation_of_nonexistent_vector_job') do 
+        Riaque.enqueue(*attributes).should be_true
+      end
     end
 
     context 'once enqueued' do 
       before do 
-        Riaque.enqueue(*attributes)
+        VCR.use_cassette('creation_of_nonexistent_vector_job') do 
+          Riaque.enqueue(*attributes)
+        end
       end
 
       it 'exists as a job' do 
-        Job.exist?(*attributes).should be_true
+        VCR.use_cassette('retrieval_of_valid_vector_job') do 
+          Job.exist?(*attributes).should be_true
+        end
       end
 
       pending 'exists in a queue'
