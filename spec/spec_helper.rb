@@ -20,8 +20,15 @@ end
 module Riaque
   class VectorJob
     @queue = :vectors
+
+    def self.perform(x, y) 
+      [x,y]
+    end
   end
 
   class StringJob
+    def self.perform(argument)
+      argument.to_s
+    end
   end
 end
