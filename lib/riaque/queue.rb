@@ -26,6 +26,17 @@ module Riaque
       self.save
     end
 
+    # Dequeue a job from a particular queue.
+    #
+    # @param  [Job]
+    # @return [Boolean]
+    #
+    def dequeue(job)
+      @jobs = @jobs.reject { |j| j == job.key }
+
+      self.save
+    end
+
     # Returns the status of a job existing in a queue.
     #
     # @param  [Job]

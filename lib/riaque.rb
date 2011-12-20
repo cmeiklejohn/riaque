@@ -18,5 +18,15 @@ module Riaque
       Job.enqueue(klass, *payload)
     end
 
+    # Dequeue a job.
+    #
+    # @param  [Class]   job class.
+    # @param  [Array]   attributes.
+    # @return [Boolean]
+    #
+    def dequeue(klass, *payload)
+      Job.dequeue(klass, *payload)
+    end
+
   end
 end

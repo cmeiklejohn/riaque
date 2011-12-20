@@ -1,0 +1,71 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://127.0.0.1:8098/riak/riaque_job/536661bdbc974a0fce8b5a2be606b0b427e7f1d8
+    body: 
+    headers:
+      accept:
+      - multipart/mixed, application/json;q=0.7, */*;q=0.5
+      x-riak-clientid:
+      - fRIXvg==
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      x-riak-vclock:
+      - a85hYGBgzGDKBVIcypz/fvodtZDOYEr0z2Nl2Hso5gRfFgA=
+      vary:
+      - Accept-Encoding
+      server:
+      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
+      link:
+      - </riak/riaque_job>; rel="up"
+      last-modified:
+      - Wed, 14 Dec 2011 05:13:46 GMT
+      etag:
+      - ! '"153yBq81SSILTGZ3A7TijS"'
+      date:
+      - Tue, 20 Dec 2011 04:56:00 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '45'
+    body: ! '{"klass":"Riaque::VectorJob","payload":[1,1]}'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://127.0.0.1:8098/riak/riaque_queue/7a2bc1b2e2c16ecfceec57cb2e245baca085b663
+    body: 
+    headers:
+      accept:
+      - multipart/mixed, application/json;q=0.7, */*;q=0.5
+      x-riak-clientid:
+      - fRIXvg==
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      x-riak-vclock:
+      - a85hYGBgzGDKBVIcypz/fvodtZDMYEo8lMfKYDMx5QRfFgA=
+      vary:
+      - Accept-Encoding
+      server:
+      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
+      link:
+      - </riak/riaque_queue>; rel="up"
+      last-modified:
+      - Fri, 16 Dec 2011 08:27:53 GMT
+      etag:
+      - ! '"3G2Fu2fv100mPw1xWoQMtz"'
+      date:
+      - Tue, 20 Dec 2011 04:56:00 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '28'
+    body: ! '{"name":"vectors","jobs":[]}'
+    http_version: '1.1'

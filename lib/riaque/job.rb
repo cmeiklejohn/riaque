@@ -8,18 +8,28 @@ module Riaque
     # Creates a new job, and pushes it into the appropriate queue for
     # that job.
     #
-    # @param  [Class] job class.
-    # @param  [Array] attributes.
+    # @param  [Class]   job class.
+    # @param  [Array]   attributes.
     # @return [Boolean] 
     #
     def self.enqueue(klass, *payload)
       instance_for(klass, *payload).enqueue
     end
 
+    # Attemps to dequeue a job give the job parameters.
+    #
+    # @param  [Class]   job class.
+    # @param  [Array]   attributes.
+    # @return [Boolean] 
+    #
+    def self.dequeue(klass, *payload)
+      instance_for(klass, *payload).dequeue
+    end
+
     # Returns if a particular job already exists.
     #
-    # @param  [Class] job class.
-    # @param  [Array] attributes.
+    # @param  [Class]   job class.
+    # @param  [Array]   attributes.
     # @return [Boolean]
     #
     def self.exist?(klass, *payload) 
@@ -32,8 +42,8 @@ module Riaque
 
     # Returns if a particular job already exists in a queue.
     #
-    # @param  [Class] job class.
-    # @param  [Array] attributes.
+    # @param  [Class]   job class.
+    # @param  [Array]   attributes.
     # @return [Boolean]
     #
     def self.enqueued?(klass, *payload) 
@@ -70,6 +80,14 @@ module Riaque
       self.enqueue_to(Queue.for(klass))
     end
 
+    # Dequeue this job from it's associated queue.
+    #
+    # @return [Boolean]
+    #
+    def dequeue
+      self.dequeue_from(Queue.for(klass))
+    end
+
     # Enqueue this job to a particular queue.
     #
     # @param  [Queue] queue to enqueue job to.
@@ -77,6 +95,15 @@ module Riaque
     #
     def enqueue_to(queue)
       queue.enqueue(self)
+    end
+
+    # Dequeue this job from a particular queue.
+    #
+    # @param  [Queue] queue from which to dequeue job from.
+    # @return [Boolean]
+    #
+    def dequeue_from(queue)
+      queue.dequeue(self)
     end
 
     # Generates a unique key to be used when creating the associated
