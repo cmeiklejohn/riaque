@@ -8,8 +8,8 @@ module Riaque
     # Creates a new job, and pushes it into the appropriate queue for
     # that job.
     #
-    # @param [Class] job class.
-    # @param [Array] attributes.
+    # @param  [Class] job class.
+    # @param  [Array] attributes.
     # @return [Boolean] 
     #
     def self.enqueue(klass, *payload)
@@ -18,8 +18,8 @@ module Riaque
 
     # Returns if a particular job already exists.
     #
-    # @param [Class] job class.
-    # @param [Array] attributes.
+    # @param  [Class] job class.
+    # @param  [Array] attributes.
     # @return [Boolean]
     #
     def self.exist?(klass, *payload) 
@@ -30,10 +30,32 @@ module Riaque
       end
     end
 
+    # Returns if a particular job already exists in a queue.
+    #
+    # @param  [Class] job class.
+    # @param  [Array] attributes.
+    # @return [Boolean]
+    #
+    def self.enqueued?(klass, *payload) 
+      begin 
+        self.find(instance_for(klass, *payload).default_key).enqueued?
+      rescue Riak::HTTPFailedRequest 
+        false
+      end
+    end
+
+    # Returns if this job in enqueued.
+    #
+    # @return [Boolean]
+    #
+    def enqueued?
+      Queue.contains?(self)
+    end
+
     # Returns instantiated Job for a particular set of attributes.
     #
-    # @param [Class] job class.
-    # @param [Array] attributes.
+    # @param  [Class] job class.
+    # @param  [Array] attributes.
     # @return [Job]
     #
     def self.instance_for(klass, *payload) 
@@ -50,7 +72,7 @@ module Riaque
 
     # Enqueue this job to a particular queue.
     #
-    # @param [Queue] queue to enqueue job to.
+    # @param  [Queue] queue to enqueue job to.
     # @return [Boolean]
     #
     def enqueue_to(queue)

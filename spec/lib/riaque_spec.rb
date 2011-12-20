@@ -23,11 +23,24 @@ module Riaque
         end
       end
 
+      it 'is enqueued' do 
+        VCR.use_cassette('retrieval_of_valid_vector_job') do 
+          Job.enqueued?(*attributes).should be_true
+        end
+      end
+
       it 'exists in a queue' do 
         VCR.use_cassette('retrieval_of_valid_vector_job') do 
           Queue.for(VectorJob).include?(Job.instance_for(*attributes)).should be_true
         end
       end
+
+      pending 'can be dequeued'
+
+      pending 'can be reserved'
+
+      pending 'can be worked'
+
     end
   end
 end

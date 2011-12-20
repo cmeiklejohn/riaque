@@ -69,3 +69,30 @@
       - '45'
     body: ! '{"klass":"Riaque::VectorJob","payload":[1,1]}'
     http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://127.0.0.1:8098/riak/riaque_queue/9c2f347ee459a169fa75f367872db5335f931a8a
+    body: 
+    headers:
+      accept:
+      - multipart/mixed, application/json;q=0.7, */*;q=0.5
+      x-riak-clientid:
+      - GX2mIA==
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: Object Not Found
+    headers:
+      server:
+      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
+      date:
+      - Tue, 20 Dec 2011 04:16:44 GMT
+      content-type:
+      - text/plain
+      content-length:
+      - '10'
+    body: ! 'not found
+
+'
+    http_version: '1.1'

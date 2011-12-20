@@ -1,6 +1,7 @@
 module Riaque
   class Queue
     include Riik::Document
+    include CoreExt
 
     property :name
     property :jobs
@@ -15,7 +16,7 @@ module Riaque
 
     # Enqueue a job into a particular queue.
     #
-    # @param [Job]
+    # @param  [Job]
     # @return [Boolean]
     #
     def enqueue(job)
@@ -27,7 +28,7 @@ module Riaque
 
     # Returns the status of a job existing in a queue.
     #
-    # @param [Job]
+    # @param  [Job]
     # @return [Boolean]
     #
     def include?(job)
@@ -36,7 +37,7 @@ module Riaque
 
     # Returns the name of the queue to use for a particular job class.
     # 
-    # @param [Class] job class
+    # @param  [Class] job class
     # @return [String]
     #
     def self.name_for(klass)
@@ -45,11 +46,11 @@ module Riaque
 
     # Returns the Queue for a particular job class.
     # 
-    # @param [Class] job class
+    # @param  [Class] job class
     # @return [Queue]
     #
     def self.for(klass)
-      instance = self.instance_for(name_for(klass))
+      instance = self.instance_for(name_for(CoreExt.qualified_const_get(klass)))
 
       begin
         self.find(instance.default_key)
@@ -58,9 +59,18 @@ module Riaque
       end
     end
 
+    # Returns if a particular job is enqueued in it's default queue.
+    # 
+    # @param  [Job]
+    # @return [Boolean]
+    #
+    def self.contains?(job)
+      Queue.for(job.klass).include?(job)
+    end
+
     # Return the instantiated object for a particular queue name.
     #
-    # @param [String] queue name
+    # @param  [String] queue name
     # @return [Queue]
     #
     def self.instance_for(name)
