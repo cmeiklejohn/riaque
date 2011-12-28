@@ -63,7 +63,17 @@ In the event of conflicts due to divergent vector clocks, which is most likely t
 
 Riaque attempts to preserve the interface of Resque and Delayed Job as much as possible, allowing for jobs classes to be defined and enqueued into any of them through the same public interface.  If you see somewhere that we've derived from that, please let us know!
 
-License
-=======
+## Contributing
+
+1. Fork the [official repository](http://github.com/criticalpair/riaque/tree/master).
+2. Make your changes in a topic branch.
+3. Send a pull request.
+
+Notes:
+
+* Contributions without tests won't be accepted.
+* Please don't update the Gem version.
+
+## License
 
 Riaque is Copyright © 2011 Critical Pair.  Riaque is free software, and may be redistributed under the terms specified in the LICENSE file.
