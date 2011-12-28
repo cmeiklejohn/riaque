@@ -44,7 +44,12 @@ module Riaque
 
       context 'with a job' do 
         let(:job) { Job.new(:klass => VectorJob, :payload => [1,1]) } 
-        let(:queue) { Queue.for(:vectors) }
+
+        let(:queue) do
+          VCR.use_cassette('retrieval_of_valid_vector_queue') do
+            Queue.for(:vectors)
+          end
+        end
        
         before do 
           VCR.use_cassette('creation_of_nonexistent_vector_job') do
@@ -63,7 +68,12 @@ module Riaque
 
       context 'with a queued job' do 
         let(:job) { Job.new(:klass => VectorJob, :payload => [1,1]) } 
-        let(:queue) { Queue.for(:vectors) }
+
+        let(:queue) do
+          VCR.use_cassette('retrieval_of_valid_vector_queue') do
+            Queue.for(:vectors)
+          end
+        end
        
         before do 
           VCR.use_cassette('creation_of_nonexistent_vector_job') do
