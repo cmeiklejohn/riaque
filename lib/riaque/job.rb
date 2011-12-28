@@ -60,6 +60,11 @@ module Riaque
       queue.include?(self)
     end
 
+    # Return the name of the queue that this job should be
+    # enqueued/dequeued to/from.
+    #
+    # @return [Symbol]
+    #
     def queue_name
       if qualified_klass = self.qualified_const_get(klass) 
         queue_name = qualified_klass.instance_variable_get("@queue")
@@ -68,6 +73,11 @@ module Riaque
       queue_name || :default
     end
 
+    # Return the queue that this job shouild be enqueued/dequeued
+    # to/from.
+    #
+    # @return [Queue] 
+    #
     def queue
       Queue.for(queue_name)
     end

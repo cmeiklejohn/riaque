@@ -83,7 +83,17 @@ module Riaque
         end
       end
 
-      pending 'can be worked'
+      context 'with a worker' do 
+        let(:worker) { Worker.new } 
+
+        subject { worker } 
+
+        it 'can be worked from a worker for a particular queue' do 
+          VCR.use_cassette('reservation_of_valid_vector_job') do 
+            subject.work(:vectors).should == [1,1]
+          end
+        end
+      end
     end
   end
 end
