@@ -2,20 +2,53 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :get
+    uri: http://127.0.0.1:8098/
+    body: 
+    headers:
+      accept:
+      - multipart/mixed, application/json;q=0.7, */*;q=0.5
+      x-riak-clientid:
+      - 0InCDQ==
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      vary:
+      - Accept
+      server:
+      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
+      link:
+      - </buckets>; rel="riak_kv_wm_buckets",</riak>; rel="riak_kv_wm_buckets",</buckets>;
+        rel="riak_kv_wm_index",</buckets>; rel="riak_kv_wm_keylist",</buckets>; rel="riak_kv_wm_link_walker",</riak>;
+        rel="riak_kv_wm_link_walker",</mapred>; rel="riak_kv_wm_mapred",</buckets>;
+        rel="riak_kv_wm_object",</riak>; rel="riak_kv_wm_object",</ping>; rel="riak_kv_wm_ping",</buckets>;
+        rel="riak_kv_wm_props",</stats>; rel="riak_kv_wm_stats"
+      date:
+      - Wed, 28 Dec 2011 21:52:28 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '366'
+    body: ! '{"riak_kv_wm_buckets":"/buckets","riak_kv_wm_buckets":"/riak","riak_kv_wm_index":"/buckets","riak_kv_wm_keylist":"/buckets","riak_kv_wm_link_walker":"/buckets","riak_kv_wm_link_walker":"/riak","riak_kv_wm_mapred":"/mapred","riak_kv_wm_object":"/buckets","riak_kv_wm_object":"/riak","riak_kv_wm_ping":"/ping","riak_kv_wm_props":"/buckets","riak_kv_wm_stats":"/stats"}'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
     uri: http://127.0.0.1:8098/riak/riaque_queue/7a2bc1b2e2c16ecfceec57cb2e245baca085b663
     body: 
     headers:
       accept:
       - multipart/mixed, application/json;q=0.7, */*;q=0.5
       x-riak-clientid:
-      - j/Ot1Q==
+      - 0InCDQ==
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
     headers:
       x-riak-vclock:
-      - a85hYGBgzGDKBVIcypz/fvodtZDMYEoCCu7LY2VYxlRwgi8LAA==
+      - a85hYGBgzGDKBVIcypz/fvodtZDMYEoCCj7NY2UIYik4wZcFAA==
       vary:
       - Accept-Encoding
       server:
@@ -23,14 +56,14 @@
       link:
       - </riak/riaque_queue>; rel="up"
       last-modified:
-      - Wed, 28 Dec 2011 19:45:40 GMT
+      - Wed, 28 Dec 2011 19:52:51 GMT
       etag:
-      - ! '"292090CCdwoDJHjFKwDWdG"'
+      - ! '"1kOLz7FmhaZWAogyreWhla"'
       date:
-      - Wed, 28 Dec 2011 21:14:14 GMT
+      - Wed, 28 Dec 2011 21:52:28 GMT
       content-type:
       - application/json
       content-length:
-      - '52'
-    body: ! '{"name":"vectors","jobs":{"reserved_at":1325106854}}'
+      - '97'
+    body: ! '{"name":"vectors","jobs":{"536661bdbc974a0fce8b5a2be606b0b427e7f1d8":{"reserved_at":1325107282}}}'
     http_version: '1.1'

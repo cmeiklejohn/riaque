@@ -8,14 +8,14 @@
       accept:
       - multipart/mixed, application/json;q=0.7, */*;q=0.5
       x-riak-clientid:
-      - j/Ot1Q==
+      - 0InCDQ==
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
     headers:
       x-riak-vclock:
-      - a85hYGBgzGDKBVIcypz/fvodtZDMYEoCCh7KY2VYzlRwgi8LAA==
+      - a85hYGBgzGDKBVIcypz/fvodtZDMYEoCCr7NY2WYy11wgi8LAA==
       vary:
       - Accept-Encoding
       server:
@@ -23,14 +23,14 @@
       link:
       - </riak/riaque_queue>; rel="up"
       last-modified:
-      - Wed, 28 Dec 2011 19:45:40 GMT
+      - Wed, 28 Dec 2011 20:24:17 GMT
       etag:
-      - ! '"2mPGWHyw8mNiH6dfhFHe8r"'
+      - ! '"6MmNhOVHjuFDvDdHTKXEcz"'
       date:
-      - Wed, 28 Dec 2011 21:14:15 GMT
+      - Wed, 28 Dec 2011 21:52:29 GMT
       content-type:
       - application/json
       content-length:
-      - '30'
-    body: ! '{"name":"vectors","jobs":null}'
+      - '73'
+    body: ! '{"name":"vectors","jobs":{"536661bdbc974a0fce8b5a2be606b0b427e7f1d8":{}}}'
     http_version: '1.1'
