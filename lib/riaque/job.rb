@@ -35,7 +35,7 @@ module Riaque
     # @return [Boolean]
     #
     def self.exist?(klass, *payload) 
-      self.find_by_attributes(:klass => klass, :payload => payload) ? true : false
+      self.find_with_attributes(:klass => klass, :payload => payload) ? true : false
     end
 
     # Returns if a particular job already exists in a queue.
@@ -45,7 +45,7 @@ module Riaque
     # @return [Boolean]
     #
     def self.enqueued?(klass, *payload) 
-      if job = self.find_by_attributes(:klass => klass, :payload => payload)
+      if job = self.find_with_attributes(:klass => klass, :payload => payload)
         job.enqueued?
       else
         false
