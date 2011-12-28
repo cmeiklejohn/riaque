@@ -1,0 +1,108 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://127.0.0.1:8098/riak/riaque_queue/7a2bc1b2e2c16ecfceec57cb2e245baca085b663
+    body: 
+    headers:
+      accept:
+      - multipart/mixed, application/json;q=0.7, */*;q=0.5
+      x-riak-clientid:
+      - R1IZEQ==
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      x-riak-vclock:
+      - a85hYGBgzGDKBVIcypz/fvodtZDMYEqUy2NlsLLJP8GXBQA=
+      vary:
+      - Accept-Encoding
+      server:
+      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
+      link:
+      - </riak/riaque_queue>; rel="up"
+      last-modified:
+      - Wed, 28 Dec 2011 07:07:38 GMT
+      etag:
+      - ! '"2amTfwURQPOH9JKZ8qoHge"'
+      date:
+      - Wed, 28 Dec 2011 07:22:13 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '73'
+    body: ! '{"name":"vectors","jobs":{"536661bdbc974a0fce8b5a2be606b0b427e7f1d8":{}}}'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :put
+    uri: http://127.0.0.1:8098/riak/riaque_queue/7a2bc1b2e2c16ecfceec57cb2e245baca085b663?returnbody=true
+    body: ! '{"name":"vectors","jobs":{"536661bdbc974a0fce8b5a2be606b0b427e7f1d8":{"reserved_at":1325057227}}}'
+    headers:
+      accept:
+      - multipart/mixed, application/json;q=0.7, */*;q=0.5
+      x-riak-clientid:
+      - H57Y/w==
+      content-type:
+      - application/json
+      x-riak-vclock:
+      - a85hYGBgzGDKBVIcypz/fvodtZDMYEqUy2NlsLLJP8GXBQA=
+      link:
+      - ''
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      x-riak-vclock:
+      - a85hYGBgzGDKBVIcypz/fvodtZDMYEqUz2NlOO2Qf4IvCwA=
+      vary:
+      - Accept-Encoding
+      server:
+      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
+      link:
+      - </riak/riaque_queue>; rel="up"
+      date:
+      - Wed, 28 Dec 2011 07:27:07 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '97'
+    body: ! '{"name":"vectors","jobs":{"536661bdbc974a0fce8b5a2be606b0b427e7f1d8":{"reserved_at":1325057227}}}'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://127.0.0.1:8098/riak/riaque_job/536661bdbc974a0fce8b5a2be606b0b427e7f1d8
+    body: 
+    headers:
+      accept:
+      - multipart/mixed, application/json;q=0.7, */*;q=0.5
+      x-riak-clientid:
+      - nC9B7A==
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      x-riak-vclock:
+      - a85hYGBgzGDKBVIcypz/fvodtZDOYEqMzGNlsLLJP8GXBQA=
+      vary:
+      - Accept-Encoding
+      server:
+      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
+      link:
+      - </riak/riaque_job>; rel="up"
+      last-modified:
+      - Wed, 28 Dec 2011 07:07:38 GMT
+      etag:
+      - ! '"dgay3f6sy5MOsdL699L1B"'
+      date:
+      - Wed, 28 Dec 2011 07:27:46 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '45'
+    body: ! '{"klass":"Riaque::VectorJob","payload":[1,1]}'
+    http_version: '1.1'

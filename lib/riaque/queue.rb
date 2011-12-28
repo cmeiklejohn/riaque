@@ -46,6 +46,41 @@ module Riaque
       jobs.keys.include?(job.key)
     end
 
+    # Find the next available job id to work.
+    #
+    # @return [String] job id.
+    #
+    def next_availability
+      if job = jobs.detect { |k, v| v['reserved_at'].nil? }
+        job.first
+      end
+    end
+
+    # Mark the job as reserved.
+    #
+    # @param  [String]  job id.
+    # @return [Boolean]
+    #
+    def make_reservation(job_id)
+      self.jobs[job_id]['reserved_at'] = Time.now.to_i
+      self.save
+    end
+
+    # Reserve a job.
+    #
+    # @return [Job]
+    #
+    def reserve
+      if job_id = next_availability
+        make_reservation(job_id)
+
+        # Attempt to look up the job by the id, which may or may not be
+        # valid anymore.
+        #
+        Job.find(job_id)
+      end
+    end
+
     # Returns the Queue for a particular job class.
     # 
     # @param  [Object] job class or symbol

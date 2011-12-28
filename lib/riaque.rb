@@ -36,6 +36,7 @@ module Riaque
     # @return [Job]
     #
     def reserve(queue)
+      Queue.for(queue).reserve
     end
 
   end

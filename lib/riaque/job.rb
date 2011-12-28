@@ -66,10 +66,6 @@ module Riaque
       end
 
       queue_name || :default
-
-      #x = (self.qualified_const_get(klass).instance_variable_get("@queue") || :default)
-      #puts "* queue name returning #{x} for #{klass.inspect}"
-      #x
     end
 
     def queue

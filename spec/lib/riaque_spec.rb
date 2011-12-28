@@ -61,7 +61,7 @@ module Riaque
         end
       end
 
-      pending 'can be reserved' do 
+      it 'can be reserved' do 
         VCR.use_cassette('reservation_of_valid_vector_job') do 
           job = Riaque.reserve(:vectors)
           job.should be_an_instance_of(Job)
@@ -71,12 +71,11 @@ module Riaque
       context 'once reserved' do 
         before do 
           VCR.use_cassette('reservation_of_valid_vector_job') do 
-            job = Riaque.reserve(:vectors)
-            job.should be_an_instance_of(Job)
+            Riaque.reserve(:vectors)
           end
         end
 
-        pending 'will not be reserved again' do 
+        it 'will not be reserved again' do 
           VCR.use_cassette('failed_reservation_of_reserved_vector_job') do 
             job = Riaque.reserve(:vectors)
             job.should_not be_an_instance_of(Job)
