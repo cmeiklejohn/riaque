@@ -89,8 +89,8 @@ module Riaque
         subject { worker } 
 
         it 'can be worked from a worker for a particular queue' do 
-          VCR.use_cassette('reservation_of_valid_vector_job') do 
-            subject.work(:vectors).should == [1,1]
+          VCR.use_cassette('execution_of_valid_vector_job') do 
+            subject.work_queue(:vectors).should be_true
           end
         end
       end
