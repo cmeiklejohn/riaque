@@ -1,5 +1,7 @@
 module Riaque
   class Job
+    include CoreExt
+    include Document
     include Riik::Document
 
     property :klass
@@ -13,7 +15,7 @@ module Riaque
     # @return [Boolean] 
     #
     def self.enqueue(klass, *payload)
-      instance_for(klass, *payload).enqueue
+      self.new(:klass => klass, :payload => payload).enqueue
     end
 
     # Attemps to dequeue a job give the job parameters.
@@ -23,7 +25,7 @@ module Riaque
     # @return [Boolean] 
     #
     def self.dequeue(klass, *payload)
-      instance_for(klass, *payload).dequeue
+      self.new(:klass => klass, :payload => payload).dequeue
     end
 
     # Returns if a particular job already exists.
@@ -33,11 +35,7 @@ module Riaque
     # @return [Boolean]
     #
     def self.exist?(klass, *payload) 
-      begin 
-        self.find(instance_for(klass, *payload).default_key).present?
-      rescue Riak::HTTPFailedRequest 
-        false
-      end
+      self.find_by_attributes(:klass => klass, :payload => payload) ? true : false
     end
 
     # Returns if a particular job already exists in a queue.
@@ -47,9 +45,9 @@ module Riaque
     # @return [Boolean]
     #
     def self.enqueued?(klass, *payload) 
-      begin 
-        self.find(instance_for(klass, *payload).default_key).enqueued?
-      rescue Riak::HTTPFailedRequest 
+      if job = self.find_by_attributes(:klass => klass, :payload => payload)
+        job.enqueued?
+      else
         false
       end
     end
@@ -59,17 +57,23 @@ module Riaque
     # @return [Boolean]
     #
     def enqueued?
-      Queue.contains?(self)
+      queue.include?(self)
     end
 
-    # Returns instantiated Job for a particular set of attributes.
-    #
-    # @param  [Class] job class.
-    # @param  [Array] attributes.
-    # @return [Job]
-    #
-    def self.instance_for(klass, *payload) 
-      self.new(:klass => klass, :payload => payload)
+    def queue_name
+      if qualified_klass = self.qualified_const_get(klass) 
+        queue_name = qualified_klass.instance_variable_get("@queue")
+      end
+
+      queue_name || :default
+
+      #x = (self.qualified_const_get(klass).instance_variable_get("@queue") || :default)
+      #puts "* queue name returning #{x} for #{klass.inspect}"
+      #x
+    end
+
+    def queue
+      Queue.for(queue_name)
     end
 
     # Enqueue this job to it's associated queue.
@@ -77,7 +81,7 @@ module Riaque
     # @return [Boolean]
     #
     def enqueue
-      self.enqueue_to(Queue.for(klass))
+      self.enqueue_to(queue)
     end
 
     # Dequeue this job from it's associated queue.
@@ -85,7 +89,7 @@ module Riaque
     # @return [Boolean]
     #
     def dequeue
-      self.dequeue_from(Queue.for(klass))
+      self.dequeue_from(queue)
     end
 
     # Enqueue this job to a particular queue.
@@ -93,8 +97,8 @@ module Riaque
     # @param  [Queue] queue to enqueue job to.
     # @return [Boolean]
     #
-    def enqueue_to(queue)
-      queue.enqueue(self)
+    def enqueue_to(specified_queue)
+      specified_queue.enqueue(self)
     end
 
     # Dequeue this job from a particular queue.
@@ -102,8 +106,8 @@ module Riaque
     # @param  [Queue] queue from which to dequeue job from.
     # @return [Boolean]
     #
-    def dequeue_from(queue)
-      queue.dequeue(self)
+    def dequeue_from(specified_queue)
+      specified_queue.dequeue(self)
     end
 
     # Generates a unique key to be used when creating the associated

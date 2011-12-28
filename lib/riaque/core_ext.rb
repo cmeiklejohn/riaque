@@ -1,11 +1,12 @@
 module Riaque
   module CoreExt
 
-    # From: http://redcorundum.blogspot.com/2006/05/kernelqualifiedconstget.html
+    # qualified_const_get supports namespaced/nested constants.
     #
+    # From:   http://redcorundum.blogspot.com/2006/05/kernelqualifiedconstget.html
     # Author: Gregory Seidman
     #
-    def self.qualified_const_get(str)
+    def qualified_const_get(str)
       path = str.to_s.split('::')
       from_root = path[0].empty?
       if from_root

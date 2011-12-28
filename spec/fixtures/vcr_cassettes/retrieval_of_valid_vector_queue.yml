@@ -2,155 +2,20 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :get
-    uri: http://127.0.0.1:8098/riak/riaque_queue/%23%3CRiaque::Queue:0x0000000291bc28%3E
-    body: 
-    headers:
-      accept:
-      - multipart/mixed, application/json;q=0.7, */*;q=0.5
-      x-riak-clientid:
-      - MrC1rQ==
-  response: !ruby/struct:VCR::Response
-    status: !ruby/struct:VCR::ResponseStatus
-      code: 404
-      message: Object Not Found
-    headers:
-      server:
-      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
-      date:
-      - Wed, 14 Dec 2011 06:28:38 GMT
-      content-type:
-      - text/plain
-      content-length:
-      - '10'
-    body: ! 'not found
-
-'
-    http_version: '1.1'
-- !ruby/struct:VCR::HTTPInteraction
-  request: !ruby/struct:VCR::Request
-    method: :get
-    uri: http://127.0.0.1:8098/riak/riaque_queue/%23%3CRiaque::Queue:0x00000001c29b28%3E
-    body: 
-    headers:
-      accept:
-      - multipart/mixed, application/json;q=0.7, */*;q=0.5
-      x-riak-clientid:
-      - Vug+dQ==
-  response: !ruby/struct:VCR::Response
-    status: !ruby/struct:VCR::ResponseStatus
-      code: 404
-      message: Object Not Found
-    headers:
-      server:
-      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
-      date:
-      - Wed, 14 Dec 2011 06:29:08 GMT
-      content-type:
-      - text/plain
-      content-length:
-      - '10'
-    body: ! 'not found
-
-'
-    http_version: '1.1'
-- !ruby/struct:VCR::HTTPInteraction
-  request: !ruby/struct:VCR::Request
-    method: :get
-    uri: http://127.0.0.1:8098/riak/riaque_queue/%23%3CRiaque::Queue:0x00000002351568%3E
-    body: 
-    headers:
-      accept:
-      - multipart/mixed, application/json;q=0.7, */*;q=0.5
-      x-riak-clientid:
-      - relSDA==
-  response: !ruby/struct:VCR::Response
-    status: !ruby/struct:VCR::ResponseStatus
-      code: 404
-      message: Object Not Found
-    headers:
-      server:
-      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
-      date:
-      - Wed, 14 Dec 2011 06:29:28 GMT
-      content-type:
-      - text/plain
-      content-length:
-      - '10'
-    body: ! 'not found
-
-'
-    http_version: '1.1'
-- !ruby/struct:VCR::HTTPInteraction
-  request: !ruby/struct:VCR::Request
-    method: :get
-    uri: http://127.0.0.1:8098/riak/riaque_queue/%23%3CRiaque::Queue:0x00000001d20ab8%3E
-    body: 
-    headers:
-      accept:
-      - multipart/mixed, application/json;q=0.7, */*;q=0.5
-      x-riak-clientid:
-      - 8mTceA==
-  response: !ruby/struct:VCR::Response
-    status: !ruby/struct:VCR::ResponseStatus
-      code: 404
-      message: Object Not Found
-    headers:
-      server:
-      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
-      date:
-      - Wed, 14 Dec 2011 06:29:38 GMT
-      content-type:
-      - text/plain
-      content-length:
-      - '10'
-    body: ! 'not found
-
-'
-    http_version: '1.1'
-- !ruby/struct:VCR::HTTPInteraction
-  request: !ruby/struct:VCR::Request
-    method: :get
-    uri: http://127.0.0.1:8098/riak/riaque_queue/%23%3CRiaque::Queue:0x00000002819938%3E
-    body: 
-    headers:
-      accept:
-      - multipart/mixed, application/json;q=0.7, */*;q=0.5
-      x-riak-clientid:
-      - c+AsFw==
-  response: !ruby/struct:VCR::Response
-    status: !ruby/struct:VCR::ResponseStatus
-      code: 404
-      message: Object Not Found
-    headers:
-      server:
-      - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
-      date:
-      - Wed, 14 Dec 2011 06:30:08 GMT
-      content-type:
-      - text/plain
-      content-length:
-      - '10'
-    body: ! 'not found
-
-'
-    http_version: '1.1'
-- !ruby/struct:VCR::HTTPInteraction
-  request: !ruby/struct:VCR::Request
-    method: :get
     uri: http://127.0.0.1:8098/riak/riaque_queue/7a2bc1b2e2c16ecfceec57cb2e245baca085b663
     body: 
     headers:
       accept:
       - multipart/mixed, application/json;q=0.7, */*;q=0.5
       x-riak-clientid:
-      - S0pHyQ==
+      - ui5m0Q==
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200
       message: OK
     headers:
       x-riak-vclock:
-      - a85hYGBgzGDKBVIcypz/fvodtZDMYErcn8fKsPdQzAm+LAA=
+      - a85hYGBgzGDKBVIcypz/fvodtZDMYEqUzWNlsLLJP8GXBQA=
       vary:
       - Accept-Encoding
       server:
@@ -158,11 +23,11 @@
       link:
       - </riak/riaque_queue>; rel="up"
       last-modified:
-      - Wed, 14 Dec 2011 05:13:46 GMT
+      - Wed, 28 Dec 2011 07:07:38 GMT
       etag:
-      - ! '"1lvUapmqwDkOW5cA2xPFSh"'
+      - ! '"5lCXn3Ec43Pv2ijAGHIytb"'
       date:
-      - Wed, 14 Dec 2011 06:48:29 GMT
+      - Wed, 28 Dec 2011 07:07:38 GMT
       content-type:
       - application/json
       content-length:

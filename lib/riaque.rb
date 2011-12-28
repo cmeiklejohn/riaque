@@ -2,9 +2,11 @@ require "riaque/version"
 require "riik"
 
 module Riaque
-  autoload :Job,     "riaque/job"
-  autoload :Queue,   "riaque/queue"
-  autoload :CoreExt, "riaque/core_ext"
+  autoload :Job,      "riaque/job"
+  autoload :Queue,    "riaque/queue"
+  autoload :Worker,   "riaque/worker"
+  autoload :Document, "riaque/document"
+  autoload :CoreExt,  "riaque/core_ext"
 
   class << self
 
@@ -26,6 +28,14 @@ module Riaque
     #
     def dequeue(klass, *payload)
       Job.dequeue(klass, *payload)
+    end
+
+    # Reserve a job.
+    #
+    # @param  [Symbol] queue
+    # @return [Job]
+    #
+    def reserve(queue)
     end
 
   end
