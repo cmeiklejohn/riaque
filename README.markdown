@@ -53,6 +53,10 @@ Assuming the job above has been queued, when it comes time for the job to be wor
 VectorJob.perform(1,1)
 ```
 
+### Conflicts
+
+In the event of conflicts due to divergent vector clocks, which is most likely to occur when dealing with queue management, Riaque will merge the job lists of the sibling objects together and resave the queue.
+
 ### Compatibility
 
 Riaque attempts to preserve the interface of Resque and Delayed Job as much as possible, allowing for jobs classes to be defined and enqueued into any of them through the same public interface.  If you see somewhere that we've derived from that, please let us know!
