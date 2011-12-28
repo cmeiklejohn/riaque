@@ -36,7 +36,7 @@ module Riaque
         subject.default_key.should == subject.key
       end
 
-      it 'returns the queue for a particular job type' do 
+      it 'returns the queue for a queue name' do
         VCR.use_cassette('retrieval_of_valid_vector_queue') do
           Queue.for(:vectors).should_not be_nil
         end
@@ -58,6 +58,32 @@ module Riaque
           end
 
           subject.jobs.should include(job.key)
+        end
+      end
+
+      context 'with a queued job' do 
+        let(:job) { Job.new(:klass => VectorJob, :payload => [1,1]) } 
+        let(:queue) { Queue.for(:vectors) }
+       
+        before do 
+          VCR.use_cassette('creation_of_nonexistent_vector_job') do
+            job.save
+          end
+
+          VCR.use_cassette('update_of_vector_queue') do
+            subject.enqueue(job).should be_true
+          end
+        end
+
+        it 'can find the next available job' do 
+          queue.next_availability.should == job.key
+        end
+
+        it 'can make a reservation' do 
+          VCR.use_cassette('reservation_of_valid_vector_job') do 
+            queue.make_reservation(job.key)
+            queue.jobs.keys.should include(job.key)
+          end
         end
       end
     end

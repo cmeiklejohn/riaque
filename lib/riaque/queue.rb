@@ -87,7 +87,7 @@ module Riaque
     # @return [Queue]
     #
     def self.for(name)
-      self.find_or_create_by_attributes(:name => name.to_s)
+      self.find_or_create_with_attributes(:name => name.to_s)
     end
 
     # Generates a unique key to be used when creating the associated

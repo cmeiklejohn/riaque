@@ -22,7 +22,7 @@ module Riaque
       # @param  [Hash]   attributes
       # @return [Object] returned object if available, else nil.
       #
-      def find_by_attributes(attributes)
+      def find_with_attributes(attributes)
         begin 
           self.find(self.default_key(attributes))
         rescue Riak::HTTPFailedRequest 
@@ -36,7 +36,7 @@ module Riaque
       # @param  [Hash]   attributes
       # @return [Object] object.
       #
-      def find_or_create_by_attributes(attributes)
+      def find_or_create_with_attributes(attributes)
         instance = self.new(attributes)
 
         begin 
