@@ -4,6 +4,8 @@ Process background jobs persisted in Riak.
 
 ## Motivation
 
+Riaque provides a high availability, eventual consistency, job queueing system that places importance on the ability to enqueue jobs and have them persisted over the ability to work them as soon as they are queued.  Riaque also assumed that jobs are unique based on their type and argument list, and are idempotent.  Riaque was built to replace Resque in the Overriak service.
+
 ## Usage 
 
 ### Jobs
