@@ -32,7 +32,7 @@ module Riaque
 
     # Reserve a job.
     #
-    # @param  [Symbol] queue
+    # @param  [Symbol]  queue
     # @return [Job]
     #
     def reserve(queue)
