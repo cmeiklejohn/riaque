@@ -65,14 +65,10 @@ Riaque attempts to preserve the interface of Resque and Delayed Job as much as p
 
 ## Contributing
 
-1. Fork the [official repository](http://github.com/criticalpair/riaque/tree/master).
-2. Make your changes in a topic branch.
+1. Fork the official repository.
+2. Make your changes in a topic branch (with tests, please).
 3. Send a pull request.
-
-Notes:
-
-* Contributions without tests won't be accepted.
-* Please don't update the Gem version.
+4. Once accepted, you'll get a free limited-run Critical Pair t-shirt!
 
 ## License
 
