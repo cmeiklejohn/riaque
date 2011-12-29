@@ -43,11 +43,11 @@
       accept:
       - multipart/mixed, application/json;q=0.7, */*;q=0.5
       x-riak-clientid:
-      - 0InCDQ==
+      - SCr6IQ==
       content-type:
       - application/json
       x-riak-vclock:
-      - a85hYGBgzGDKBVIcypz/fvodtZDMYEoCCr7NY2WYy11wgi8LAA==
+      - a85hYGBgzGDKBVIcypz/fvodtZDMYEpiYGB1zWNlSCwqOMGXBQA=
       link:
       - ''
   response: !ruby/struct:VCR::Response
@@ -56,7 +56,7 @@
       message: OK
     headers:
       x-riak-vclock:
-      - a85hYGBgzGDKBVIcypz/fvodtZDMYEoCCr7LY2WYy11wgi8LAA==
+      - a85hYGBgzGDKBVIcypz/fvodtZDMYEpiYGB1y2NlSCwqOMGXBQA=
       vary:
       - Accept-Encoding
       server:
@@ -64,7 +64,7 @@
       link:
       - </riak/riaque_queue>; rel="up"
       date:
-      - Wed, 28 Dec 2011 21:52:29 GMT
+      - Thu, 29 Dec 2011 05:10:57 GMT
       content-type:
       - application/json
       content-length:

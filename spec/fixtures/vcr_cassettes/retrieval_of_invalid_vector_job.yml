@@ -8,7 +8,7 @@
       accept:
       - multipart/mixed, application/json;q=0.7, */*;q=0.5
       x-riak-clientid:
-      - n00eXg==
+      - SCr6IQ==
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 404
@@ -17,7 +17,7 @@
       server:
       - MochiWeb/1.1 WebMachine/1.9.0 (participate in the frantic)
       date:
-      - Wed, 28 Dec 2011 21:21:21 GMT
+      - Thu, 29 Dec 2011 05:10:57 GMT
       content-type:
       - text/plain
       content-length:
