@@ -1,6 +1,10 @@
 # Riaque
 
-Process background jobs persisted in Riak.
+Process background jobs persisted in Riak.  
+
+## Work In Progress
+
+Currently under development.
 
 ## Motivation
 
