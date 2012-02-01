@@ -80,4 +80,4 @@ Riaque is Copyright © 2011 Critical Pair.  Riaque is free software, and may be 
 
 ## About
 
-The riaque gem was written by {Christopher Meiklejohn}[mailto:christopher.meiklejohn@gmail.com].
+The riaque gem was written by [Christopher Meiklejohn](mailto:christopher.meiklejohn@gmail.com).
