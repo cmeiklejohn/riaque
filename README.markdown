@@ -77,3 +77,7 @@ Riaque attempts to preserve the interface of Resque and Delayed Job as much as p
 ## License
 
 Riaque is Copyright © 2011 Critical Pair.  Riaque is free software, and may be redistributed under the terms specified in the LICENSE file.
+
+## About
+
+The riaque gem was written by {Christopher Meiklejohn}[mailto:christopher.meiklejohn@gmail.com].
