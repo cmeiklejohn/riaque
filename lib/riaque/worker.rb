@@ -2,9 +2,16 @@ module Riaque
   class Worker
     include CoreExt
 
+    attr_accessor :queues
+
+    def initialize(*queues) 
+      @queues = queues
+    end
+
     # Start a worker and begin working the queues.
     #
-    def work; end
+    def work(interval = 5.0)
+    end
 
     # Work a job for a particular queue and dequeue once complete.
     #
